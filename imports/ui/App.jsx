@@ -1,23 +1,23 @@
 import React from 'react';
+import { useTracker } from 'meteor/react-meteor-data';
+import { CommentsCollection } from '/imports/db/CommentsCollection';
 import { Comment } from './Comment';
 
-const comments = [
-  {_id: 1, user: '1@email.ca', text: 'First Comment'},
-  {_id: 2, user: '2@email.ca',text: 'Second Comment'},
-  {_id: 3, user: '3@email.ca',text: 'Third Comment'},
-];
+export const App = () => {
+  const comments = useTracker(() => CommentsCollection.find({}).fetch());
 
-const oldComments = comments.map(comment => (
-  <Comment
-    key={comment._id}
-    comment={comment}
-  />
-));
+  const oldComments = comments.map(comment => (
+    <Comment
+      key={comment._id}
+      comment={comment}
+    />
+  ));
 
-export const App = () => (
-  <div>
-    <h1>Discussionbook</h1>
+  return (
+    <div>
+      <h1>Discussionbook</h1>
 
-    <article>{oldComments}</article>
-  </div>
-);
+      <article>{oldComments}</article>
+    </div>
+  );
+};
