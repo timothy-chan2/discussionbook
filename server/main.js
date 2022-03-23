@@ -1,31 +1,20 @@
 import { Meteor } from 'meteor/meteor';
-import { LinksCollection } from '/imports/api/links';
+import { CommentsCollection } from '/imports/db/CommentsCollection';
 
-function insertLink({ title, url }) {
-  LinksCollection.insert({title, url, createdAt: new Date()});
-}
+const insertComment = (email, commentText) =>
+  CommentsCollection.insert({
+    user: email,
+    text: commentText
+  });
 
 Meteor.startup(() => {
-  // If the Links collection is empty, add some data.
-  if (LinksCollection.find().count() === 0) {
-    insertLink({
-      title: 'Do the Tutorial',
-      url: 'https://www.meteor.com/tutorials/react/creating-an-app'
-    });
-
-    insertLink({
-      title: 'Follow the Guide',
-      url: 'http://guide.meteor.com'
-    });
-
-    insertLink({
-      title: 'Read the Docs',
-      url: 'https://docs.meteor.com'
-    });
-
-    insertLink({
-      title: 'Discussions',
-      url: 'https://forums.meteor.com'
-    });
+  // If the Comments collection is empty, add some data.
+  if (CommentsCollection.find().count() === 0) {
+    [
+      {user: '1@email.ca', text: 'First Comment'},
+      {user: '2@email.ca',text: 'Second Comment'},
+      {user: '3@email.ca',text: 'Third Comment'},
+      {user: '1@email.ca',text: 'Fourth Task'}
+    ].forEach(comment => insertComment(comment.user, comment.text));
   }
 });
