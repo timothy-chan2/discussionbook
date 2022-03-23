@@ -2,6 +2,7 @@ import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { CommentsCollection } from '/imports/db/CommentsCollection';
 import { Comment } from './Comment';
+import { CommentForm } from './CommentForm';
 
 export const App = () => {
   const comments = useTracker(() => CommentsCollection.find({}).fetch());
@@ -16,6 +17,8 @@ export const App = () => {
   return (
     <div>
       <h1>Discussionbook</h1>
+
+      <CommentForm />
 
       <article>{oldComments}</article>
     </div>
