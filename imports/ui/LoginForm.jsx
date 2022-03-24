@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
+import { Accounts } from 'meteor/accounts-base';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -8,7 +9,14 @@ export const LoginForm = () => {
   const submit = e => {
     e.preventDefault();
 
-    Meteor.loginWithPassword(email, password);
+    Meteor.loginWithPassword(email, password, err => {
+      if (err && err.reason === 'User not found') {
+        Accounts.createUser({
+          email: email,
+          password: password,
+        });
+      }
+    });
   };
 
   return (
