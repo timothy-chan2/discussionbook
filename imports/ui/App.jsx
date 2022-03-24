@@ -16,10 +16,18 @@ export const App = () => {
     />
   ));
 
+  const logout = () => Meteor.logout();
+
   return (
     <div className="app">
-      <header>
+      <header className="menu">
         <h1>Discussionbook</h1>
+          {user &&
+            <section className="user">
+              <span>Logged in as: {user.emails[0].address}</span>
+              <button onClick={logout}>Logout</button>
+            </section>
+          }
       </header>
 
       <main>

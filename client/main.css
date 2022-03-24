@@ -8,6 +8,7 @@
   --light-blue: #A7C6FE;
   --yellow: #ffc107;
   --aqua: #5bc0de;
+  --pink: #E68989;
 }
 
 body {
@@ -27,6 +28,12 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {
@@ -127,4 +134,28 @@ h2 {
 .login-form > div > button:hover, .login-form > div > button:focus {
   color: var(--dark);
   background-color: var(--aqua);
+}
+
+.user {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.user > button {
+  color: var(--pink);
+  font-weight: bold;
+  font-size: 1em;
+  border: 2px solid var(--pink);
+  border-radius: 5px;
+  background-color: var(--dark);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.user > button:hover, .user > button:focus {
+  color: var(--dark);
+  background-color: var(--pink);
 }
