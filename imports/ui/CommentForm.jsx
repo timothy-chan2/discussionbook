@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CommentsCollection } from '/imports/db/CommentsCollection';
 
-export const CommentForm = () => {
+export const CommentForm = ({ user }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = e => {
@@ -10,7 +10,7 @@ export const CommentForm = () => {
     if (!text) return;
 
     CommentsCollection.insert({
-      user: '1@email.ca',
+      emailId: user.emails[0].address,
       text: text.trim()
     });
 

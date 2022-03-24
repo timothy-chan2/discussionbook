@@ -25,7 +25,7 @@ export const App = () => {
       <main>
         {user ? (
           <Fragment>
-            <CommentForm />
+            <CommentForm user={user} />
             <section className="old-comments">{oldComments}</section>
           </Fragment>
         ) : (
