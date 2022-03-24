@@ -8,7 +8,7 @@ const insertComment = (user, commentText) =>
     text: commentText
   });
 
-const SEED_EMAIL = 'meteorite@email.ca';
+const SEED_EMAIL = 'comet@email.ca';
 const SEED_PASSWORD = 'password';
 
 Meteor.startup(() => {
