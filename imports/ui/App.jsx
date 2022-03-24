@@ -20,7 +20,7 @@ export const App = () => {
 
       <CommentForm />
 
-      <article>{oldComments}</article>
+      <section className="old-comments">{oldComments}</section>
     </div>
   );
 };
