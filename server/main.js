@@ -1,20 +1,33 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import { CommentsCollection } from '/imports/db/CommentsCollection';
 
-const insertComment = (email, commentText) =>
+const insertComment = (user, commentText) =>
   CommentsCollection.insert({
-    user: email,
+    emailId: user.emails[0].address,
     text: commentText
   });
 
+const SEED_EMAIL = 'meteorite@email.ca';
+const SEED_PASSWORD = 'password';
+
 Meteor.startup(() => {
+  if (!Accounts.findUserByEmail(SEED_EMAIL)) {
+    Accounts.createUser({
+      email: SEED_EMAIL,
+      password: SEED_PASSWORD,
+    });
+  }
+
+  const user = Accounts.findUserByEmail(SEED_EMAIL);
+  
   // If the Comments collection is empty, add some data.
   if (CommentsCollection.find().count() === 0) {
     [
-      {user: '1@email.ca', text: 'First Comment'},
-      {user: '2@email.ca',text: 'Second Comment'},
-      {user: '3@email.ca',text: 'Third Comment'},
-      {user: '1@email.ca',text: 'Fourth Comment'}
-    ].forEach(comment => insertComment(comment.user, comment.text));
+      'First Comment',
+      'Second Comment',
+      'Third Comment',
+      'Fourth Comment'
+    ].forEach(comment => insertComment(user, comment));
   }
 });
