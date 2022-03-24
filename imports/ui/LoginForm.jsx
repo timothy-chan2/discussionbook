@@ -13,26 +13,34 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={submit} className="login-form">
-      <label htmlFor="email">E-mail</label>
+      <div>
+        <div>
+          <label htmlFor="email">E-mail</label>
 
-      <input
-        type="text"
-        placeholder="example@email.ca"
-        name="email"
-        required
-        onChange={e => setEmail(e.target.value)}
-      />
+          <input
+            type="email"
+            placeholder="example@email.ca"
+            name="email"
+            required
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
 
-      <label htmlFor="password">Password</label>
+        <div>
+          <label htmlFor="password">Password</label>
 
-      <input
-        type="password"
-        name="password"
-        required
-        onChange={e => setPassword(e.target.value)}
-      />
+          <input
+            type="password"
+            name="password"
+            required
+            onChange={e => setPassword(e.target.value)}
+          />
+        </div>
+      </div>
 
-      <button type="submit">Log In</button>
+      <div>
+        <button type="submit">Log In</button>
+      </div>
     </form>
   );
 };

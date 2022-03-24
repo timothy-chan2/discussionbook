@@ -17,8 +17,10 @@ export const App = () => {
   ));
 
   return (
-    <div>
-      <h1>Discussionbook</h1>
+    <div className="app">
+      <header>
+        <h1>Discussionbook</h1>
+      </header>
 
       <main>
         {user ? (
