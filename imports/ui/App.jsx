@@ -22,12 +22,12 @@ export const App = () => {
     <div className="app">
       <header className="menu">
         <h1>Discussionbook</h1>
-          {user &&
-            <section className="user">
-              <span>Logged in as: {user.emails[0].address}</span>
-              <button onClick={logout}>Logout</button>
-            </section>
-          }
+        {user &&
+          <section className="user">
+            <span>Logged in as: {user.emails[0].address}</span>
+            <button onClick={logout}>Logout</button>
+          </section>
+        }
       </header>
 
       <main>
