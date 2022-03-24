@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { CommentsCollection } from '/imports/db/CommentsCollection';
 import { Comment } from './Comment';
 import { CommentForm } from './CommentForm';
+import { LoginForm } from './LoginForm';
 
 export const App = () => {
+  const user = useTracker(() => Meteor.user());
   const comments = useTracker(() => CommentsCollection.find({}).fetch());
 
   const oldComments = comments.map(comment => (
@@ -18,9 +20,16 @@ export const App = () => {
     <div>
       <h1>Discussionbook</h1>
 
-      <CommentForm />
-
-      <section className="old-comments">{oldComments}</section>
+      <main>
+        {user ? (
+          <Fragment>
+            <CommentForm />
+            <section className="old-comments">{oldComments}</section>
+          </Fragment>
+        ) : (
+          <LoginForm />
+        )}
+      </main>
     </div>
   );
 };
