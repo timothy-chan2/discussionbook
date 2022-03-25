@@ -1,0 +1,14 @@
+:root {
+  --green: #80E096;
+  --dark: #343a40;
+  --darker: #272121;
+  --light: #f8f9fa;
+  --gray: #B0B5BA;
+  --border-gray: #aaa;
+  --purple: #A5A4EA;
+  --light-blue: #A7C6FE;
+  --yellow: #ffc107;
+  --aqua: #5bc0de;
+  --pink: #E68989;
+  --shadow: rgba(34, 25, 25, 0.4);
+}
