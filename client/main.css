@@ -1,6 +1,7 @@
 :root {
   --green: #80E096;
   --dark: #343a40;
+  --darker: #272121;
   --light: #f8f9fa;
   --gray: #B0B5BA;
   --border-gray: #aaa;
@@ -9,6 +10,7 @@
   --yellow: #ffc107;
   --aqua: #5bc0de;
   --pink: #E68989;
+  --shadow: rgba(34, 25, 25, 0.4);
 }
 
 body {
@@ -43,6 +45,7 @@ body {
 h1 {
   font-size: 2em;
   color: var(--purple);
+  margin-top: 0;
 }
 
 button {
@@ -91,15 +94,16 @@ main::-webkit-scrollbar {
 }
 
 .old-comments {
-  margin: 1em 0;
+  margin-bottom: 0.75em;
 }
 
 .comment {
+  background-color: var(--darker);
   border: 3px solid var(--light-blue);
   border-radius: 10px 25px;
   padding: 0 1em;
   margin-top: 1em;
-  box-shadow: 0 8px 3px rgba(34, 25, 25, 0.4);
+  box-shadow: 0 8px 3px var(--shadow);
 }
 
 h2 {
