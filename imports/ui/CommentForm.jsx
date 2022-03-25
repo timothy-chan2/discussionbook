@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CommentsCollection } from '/imports/db/CommentsCollection';
 
-export const CommentForm = ({ user }) => {
+export const CommentForm = ({user}) => {
   const [text, setText] = useState("");
 
   const handleSubmit = e => {
@@ -9,10 +9,7 @@ export const CommentForm = ({ user }) => {
 
     if (!text) return;
 
-    CommentsCollection.insert({
-      emailId: user.emails[0].address,
-      text: text.trim()
-    });
+    Meteor.call('comments.insert', { text, user });
 
     setText("");
   };
