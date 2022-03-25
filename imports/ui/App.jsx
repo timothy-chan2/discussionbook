@@ -7,7 +7,7 @@ import { LoginForm } from './LoginForm';
 
 export const App = () => {
   const user = useTracker(() => Meteor.user());
-  const { comments, isLoading } = useTracker(() =>{
+  const { comments, isLoading } = useTracker(() => {
     const noDataAvailable = { comments: [] };
     if (!user) {
       return noDataAvailable;
