@@ -41,6 +41,16 @@ body {
   justify-content: space-between;
 }
 
+@media screen and (min-width: 992px) {
+  .app {
+    padding: 15px 75px;
+  }
+  
+  .menu {
+    flex-direction: row;
+  }
+}
+
 h1 {
   font-size: 2em;
   color: var(--purple);
@@ -103,6 +113,13 @@ main::-webkit-scrollbar {
   padding: 0 1em;
   margin-top: 1em;
   box-shadow: 0 8px 3px var(--shadow);
+}
+
+@media screen and (min-width: 992px) {
+  .comment {
+    padding: 0.5em 2em;
+    margin-top: 2em;
+  }
 }
 
 h2 {
