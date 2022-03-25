@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 
+// The form to create/log in into the application
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

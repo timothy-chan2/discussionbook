@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// The form to enter a new comment on the discussion board
 export const CommentForm = ({ user }) => {
   const [text, setText] = useState("");
 

@@ -5,6 +5,8 @@ import { Comment } from './Comment';
 import { CommentForm } from './CommentForm';
 import { LoginForm } from './LoginForm';
 
+// Displays the log in page if the user isn't logged in
+// Displays the discussion board once the user is authenticated
 export const App = () => {
   const user = useTracker(() => Meteor.user());
   const { comments, isLoading } = useTracker(() => {

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// A single comment in the feed from the Comments collection
 export const Comment = ({ comment }) => {
   return (
     <section className="comment">
