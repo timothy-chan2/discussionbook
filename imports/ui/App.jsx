@@ -7,7 +7,21 @@ import { LoginForm } from './LoginForm';
 
 export const App = () => {
   const user = useTracker(() => Meteor.user());
-  const comments = useTracker(() => CommentsCollection.find({}).fetch());
+  const { comments, isLoading } = useTracker(() =>{
+    const noDataAvailable = { comments: [] };
+    if (!user) {
+      return noDataAvailable;
+    }
+    const handler = Meteor.subscribe('comments');
+
+    if (!handler.ready()) {
+      return { ...noDataAvailable, isLoading: true };
+    }
+
+    const comments = CommentsCollection.find({}).fetch();
+
+    return { comments };
+  });
 
   const oldComments = comments.map(comment => (
     <Comment
@@ -34,6 +48,7 @@ export const App = () => {
         {user ? (
           <Fragment>
             <CommentForm user={user} />
+            {isLoading && <p className="loading">Loading...</p>}
             <section className="old-comments">{oldComments}</section>
           </Fragment>
         ) : (
