@@ -1,0 +1,74 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 96vh;
+  padding: 15px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 992px) {
+  .app {
+    padding: 15px 75px;
+  }
+  
+  .menu {
+    flex-direction: row;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--purple);
+  margin-top: 0;
+}
+
+button {
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: inherit;
+}
+
+.old-comments {
+  margin-bottom: 0.75em;
+}
+
+.user {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.user > button {
+  color: var(--pink);
+  background-color: var(--dark);
+  border: 2px solid var(--pink);
+  padding: 8px 12px;
+}
+
+.user > button:hover, .user > button:focus {
+  color: var(--dark);
+  background-color: var(--pink);
+}
