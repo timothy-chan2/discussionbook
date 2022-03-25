@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { CommentsCollection } from '/imports/db/CommentsCollection';
 
-export const CommentForm = ({user}) => {
+export const CommentForm = ({ user }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = e => {
@@ -19,7 +18,7 @@ export const CommentForm = ({user}) => {
       <textarea
         placeholder="Type to add new comments"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={e => setText(e.target.value)}
       />
 
       <button type="submit">Save</button>
