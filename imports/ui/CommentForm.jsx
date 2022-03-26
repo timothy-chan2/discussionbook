@@ -17,12 +17,12 @@ export const CommentForm = ({ user }) => {
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
       <textarea
-        placeholder="Type to add new comments"
+        placeholder="Type your new comment"
         value={text}
         onChange={e => setText(e.target.value)}
       />
 
-      <button type="submit">Save</button>
+      <button type="submit">Send</button>
     </form>
   );
 };
