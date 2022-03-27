@@ -11,12 +11,6 @@
   margin: 8px;
 }
 
-.login-form > div > p {
-  color: var(--pink);
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
 .login-form > div > div {
   margin: 8px;
   margin-top: 20px;

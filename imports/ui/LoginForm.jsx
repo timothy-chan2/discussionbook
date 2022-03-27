@@ -28,7 +28,7 @@ export const LoginForm = () => {
     <form onSubmit={submit} className="login-form">
       {loginError &&
         <div>
-          <p>{loginError}</p>
+          <p className="error-message">{loginError}</p>
         </div>
       }
 
