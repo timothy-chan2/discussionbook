@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTracker } from 'meteor/react-meteor-data';
 
 // The form to enter a new comment on the discussion board
 export const CommentForm = ({ user }) => {
@@ -6,14 +7,18 @@ export const CommentForm = ({ user }) => {
   const [text, setText] = useState("");
   const [commentError, setCommentError] = useState("");
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    setCommentError("");
-
+  useTracker(() => {
     if (text.length > maxLength) {
       setCommentError("🔥 Text exceeds max length 🔥");
-      return;
+    } else {
+      setCommentError("");
     }
+  },[text]);
+  
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (text.length > maxLength) return;
 
     Meteor.call('comments.insert', { text, user });
 
