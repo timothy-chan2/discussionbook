@@ -6,9 +6,11 @@ import { Accounts } from 'meteor/accounts-base';
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   const submit = e => {
     e.preventDefault();
+    setLoginError('');
 
     Meteor.loginWithPassword(email, password, err => {
       if (err && err.reason === 'User not found') {
@@ -16,12 +18,20 @@ export const LoginForm = () => {
           email: email,
           password: password,
         });
+      } else if (err && err.reason === 'Incorrect password') {
+        setLoginError(`🔥 ${err.reason} 🔥`);
       }
     });
   };
 
   return (
     <form onSubmit={submit} className="login-form">
+      {loginError &&
+        <div>
+          <p>{loginError}</p>
+        </div>
+      }
+
       <div>
         <div>
           <label htmlFor="email">E-mail</label>
