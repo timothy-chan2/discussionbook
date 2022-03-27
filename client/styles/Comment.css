@@ -19,6 +19,7 @@ h2 {
   font-size: 1.2em;
 }
 
+/* To preserve the line breaks entered by the user */
 .comment > p {
   white-space: pre;
 }
