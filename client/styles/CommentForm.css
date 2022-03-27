@@ -10,6 +10,12 @@
   background-color: var(--green);
 }
 
+.error-message {
+  color: var(--pink);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 .comment-form > textarea {
   flex-grow: 1;
   box-sizing: border-box;
