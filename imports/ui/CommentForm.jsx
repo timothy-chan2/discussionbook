@@ -9,11 +9,6 @@ export const CommentForm = ({ user }) => {
     e.preventDefault();
     setCommentError("");
 
-    if (!text) {
-      setCommentError("🔥 Cannot be empty 🔥");
-      return;
-    }
-
     Meteor.call('comments.insert', { text, user });
 
     setText("");
@@ -25,6 +20,7 @@ export const CommentForm = ({ user }) => {
       <textarea
         placeholder="Type your new comment"
         value={text}
+        required
         onChange={e => setText(e.target.value)}
       />
 
