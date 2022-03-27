@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 
 // The form to enter a new comment on the discussion board
 export const CommentForm = ({ user }) => {
+  const maxLength = 1000;
   const [text, setText] = useState("");
   const [commentError, setCommentError] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
     setCommentError("");
+
+    if (text.length > maxLength) {
+      setCommentError("🔥 Text exceeds max length 🔥");
+      return;
+    }
 
     Meteor.call('comments.insert', { text, user });
 
@@ -23,8 +29,10 @@ export const CommentForm = ({ user }) => {
         required
         onChange={e => setText(e.target.value)}
       />
-
-      <button type="submit">Send</button>
+      <div>
+        <button type="submit">Send</button>
+        <p>{text.length}/{maxLength}</p>
+      </div>
     </form>
   );
 };

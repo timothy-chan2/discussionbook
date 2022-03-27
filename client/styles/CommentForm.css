@@ -1,11 +1,17 @@
-.comment-form > button {
+.comment-form > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comment-form > div > button {
   color: var(--green);
   background-color: var(--dark);
   border: 2px solid var(--green);
   margin: 1em;
 }
 
-.comment-form > button:hover, .comment-form > button:focus {
+.comment-form > div > button:hover, .comment-form > div > button:focus {
   color: var(--dark);
   background-color: var(--green);
 }
