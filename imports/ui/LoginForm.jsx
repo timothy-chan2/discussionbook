@@ -1,15 +1,31 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
+import { useTracker } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
 
 // The form to create/log in into the application
 export const LoginForm = () => {
+  const maxLength = 256;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
 
+  useTracker(() => {
+    if (email.length > maxLength) {
+      setLoginError("🔥 E-mail exceeds max length 🔥");
+    } else if (password.length > maxLength) {
+      setLoginError("🔥 Password exceeds max length 🔥");
+    } else {
+      setLoginError("");
+    }
+  },[email, password]);
+
   const submit = e => {
     e.preventDefault();
+    
+    if (email.length > maxLength) return;
+    if (password.length > maxLength) return;
+    
     setLoginError('');
 
     Meteor.loginWithPassword(email, password, err => {
