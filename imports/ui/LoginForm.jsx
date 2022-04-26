@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
 
@@ -42,6 +42,7 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={submit} className="login-form">
+    <h2 className="slogan">Share words of encouragement with strangers</h2>
       {loginError &&
         <div>
           <p className="error-message">{loginError}</p>
