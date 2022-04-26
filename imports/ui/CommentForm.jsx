@@ -36,7 +36,7 @@ export const CommentForm = ({ user }) => {
       />
       <div>
         <button type="submit">Send</button>
-        <p>{text.length}/{maxLength}</p>
+        <p>{text.length} / {maxLength}</p>
       </div>
     </form>
   );
