@@ -57,6 +57,10 @@ export const App = () => {
           <LoginForm />
         )}
       </main>
+
+      <footer>
+        <p>Made with ❤️ by Timothy Chan in Quebec, Canada</p>
+      </footer>
     </div>
   );
 };
